@@ -1,0 +1,35 @@
+<div class="row">
+  <div class="col-md-12 text-center">
+    <form [formGroup]="audioForm">
+      
+      <div class="row">
+        <div class="col-md-12">
+          <h5>Compressor</h5>
+          <input type="range" formControlName="rangeOne">
+        </div>
+
+        <div class="col-md-12">
+          <h5>Reverb</h5>
+          <input type="range" formControlName="rangeTwo">
+        </div>
+
+        <div class="col-md-12">
+          <h5>Delay</h5>
+          <input type="range" formControlName="rangeThree">
+        </div>
+      </div>
+      <div class="row">
+        <h5>EQ</h5>
+        <!-- Equalizer -->
+        <div class="col-md-12 p-5 text-center" style="margin: 0 auto;">
+          <input type="range" class="vertical" formControlName="eqOne" >
+          <input type="range" class="vertical" formControlName="eqTwo" >
+          <input type="range" class="vertical" formControlName="eqThree" >
+          <input type="range" class="vertical" formControlName="eqFour" >
+          <input type="range" class="vertical" formControlName="eqFive" >
+          <input type="range" class="vertical" formControlName="eqSix" >
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
