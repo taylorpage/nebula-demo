@@ -74,7 +74,7 @@ input[type=range]::-ms-track {
   color: transparent;
 }
 input[type=range]::-ms-fill-lower {
-  background: #777;
+  background: $light-red;
   border-radius: 10px;
 }
 input[type=range]::-ms-fill-upper {
@@ -92,14 +92,13 @@ input[type=range]:focus::-ms-fill-lower {
   background: $light-red;
 }
 input[type=range]:focus::-ms-fill-upper {
-  background: #ccc;
+  background: $grey;
 }
 
 input[type=range].vertical {
   width: 100px;
   height: 10px;
   margin: 0 -25px;
-  top: 100px;
   transform: rotate(-90deg);
 }
 

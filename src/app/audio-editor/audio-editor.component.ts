@@ -30,7 +30,10 @@ export class AudioEditorComponent implements OnInit {
       eqThree: 0,
       eqFour: 0,
       eqFive: 0,
-      eqSix: 0
+      eqSix: 0,
+
+      // Pre set
+      preset: ''
     });
   }
 

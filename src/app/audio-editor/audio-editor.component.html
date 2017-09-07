@@ -1,11 +1,22 @@
 <div class="row">
-  <div class="col-md-12 text-center">
-    <form [formGroup]="audioForm">
+  <div class="col-md-4"><!-- spacer --></div>
+  <div class="col-md-4 text-center">
+    <h2>Audio Editing Tool</h2>
+    <p>Nebula features an easy to use audio editing feature that allows artists
+      to get the best sound out of their music. The audio effects are structured
+      in a way that allows any level musician to take their music to the next level.
+    </p>
+  </div>
+  <div class="col-md-4"><!-- spacer --></div>
+</div>
+<form [formGroup]="audioForm">
+  <div class="row">
+    <div class="col-md-12 text-center">
       
       <div class="row">
         <div class="col-md-12">
           <h5>Compressor</h5>
-          <input type="range" class="horizontal" formControlName="rangeOne">
+          <input type="range" class="horizontal" formControlName="rangeOne"> 
         </div>
 
         <div class="col-md-12">
@@ -19,9 +30,8 @@
         </div>
       </div>
       <div class="row">
-
         <!-- Equalizer -->
-        <div class="col-md-12 p-5 text-center" style="margin: 0 auto;">
+        <div class="col-md-12 text-center">
           <h5 class="pb-5">EQ</h5>
           <input type="range" class="vertical" formControlName="eqOne" >
           <input type="range" class="vertical" formControlName="eqTwo" >
@@ -31,6 +41,24 @@
           <input type="range" class="vertical" formControlName="eqSix" >
         </div>
       </div>
-    </form>
+      
+    </div>
   </div>
-</div>
+
+  <div class="row">
+    <div class="col-md-4"><!-- Spacer --></div>
+    <div class="col-md-4 text-center">
+      <h2>Effect Pre-Sets</h2>
+      <p>For those not trying to reinvent the wheel there is also an option to 
+        select from a series of pre-selected effects based on specific genres
+      </p>
+      <select formControlName="preset">
+        <option value="jazz">Jazz</option>
+        <option value="acoustic">Acoustic</option>
+        <option value="hip-hop">Hip Hop</option>
+        <option value="electronic">Electronic</option>
+      </select>
+    </div>
+    <div class="col-md-4"><!-- Spacer --></div>
+  </div>
+</form>
