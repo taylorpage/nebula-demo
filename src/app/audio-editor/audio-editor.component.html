@@ -1,5 +1,7 @@
 <div class="row">
-  <div class="col-md-4"><!-- spacer --></div>
+  <!-- spacer -->
+  <div class="col-md-4"></div>
+
   <div class="col-md-4 text-center">
     <h2>Audio Editing Tool</h2>
     <p>Nebula features an easy to use audio editing feature that allows artists
@@ -7,7 +9,9 @@
       in a way that allows any level musician to take their music to the next level.
     </p>
   </div>
-  <div class="col-md-4"><!-- spacer --></div>
+
+  <!-- spacer -->
+  <div class="col-md-4"></div>
 </div>
 <form [formGroup]="audioForm">
   <div class="row">
@@ -30,35 +34,48 @@
         </div>
       </div>
       <div class="row">
+        <!-- <div class="col-md-4"></div> -->
         <!-- Equalizer -->
         <div class="col-md-12 text-center">
           <h5 class="pb-5">EQ</h5>
-          <input type="range" class="vertical" formControlName="eqOne" >
-          <input type="range" class="vertical" formControlName="eqTwo" >
-          <input type="range" class="vertical" formControlName="eqThree" >
-          <input type="range" class="vertical" formControlName="eqFour" >
-          <input type="range" class="vertical" formControlName="eqFive" >
-          <input type="range" class="vertical" formControlName="eqSix" >
-        </div>
+            <div class="range-field">
+              <input type="range" class="vertical" formControlName="eqOne" >  
+              <input type="range" class="vertical" formControlName="eqTwo" >
+              <input type="range" class="vertical" formControlName="eqThree" >
+              <input type="range" class="vertical" formControlName="eqFour" >
+              <input type="range" class="vertical" formControlName="eqFive" >
+              <input type="range" class="vertical" formControlName="eqSix" >
+            </div>
+          </div>
+        <!-- <div class="col-md-4"></div> -->
       </div>
       
     </div>
   </div>
 
+
   <div class="row">
-    <div class="col-md-4"><!-- Spacer --></div>
+  
+    <!-- Spacer -->
+    <div class="col-md-4"></div>
+
     <div class="col-md-4 text-center">
       <h2>Effect Pre-Sets</h2>
       <p>For those not trying to reinvent the wheel there is also an option to 
         select from a series of pre-selected effects based on specific genres
       </p>
-      <select formControlName="preset">
-        <option value="jazz">Jazz</option>
-        <option value="acoustic">Acoustic</option>
-        <option value="hip-hop">Hip Hop</option>
-        <option value="electronic">Electronic</option>
-      </select>
+      <div class="input-field pt-5">
+        <select formControlName="preset" materialize="material_select">
+          <option class="pre-set-options" value="custom">Custom</option>
+          <option class="pre-set-options" value="jazz">Jazz</option>
+          <option class="pre-set-options" value="acoustic">Acoustic</option>
+          <option class="pre-set-options" value="hip-hop">Hip Hop</option>
+          <option class="pre-set-options" value="electronic">Electronic</option>
+        </select>
+      </div>
     </div>
-    <div class="col-md-4"><!-- Spacer --></div>
+
+    <!-- Spacer -->
+    <div class="col-md-4"></div>
   </div>
 </form>

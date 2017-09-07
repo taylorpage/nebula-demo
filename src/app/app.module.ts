@@ -14,7 +14,8 @@ import { AudioEditorComponent } from './audio-editor/audio-editor.component';
   imports: [
     BrowserModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MaterializeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

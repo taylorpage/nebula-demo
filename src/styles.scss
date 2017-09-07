@@ -1,0 +1,150 @@
+@import './assets/_variables.scss';
+
+ul.dropdown-content.select-dropdown li span {
+  color: $red;
+}
+
+
+/* Dropdown styles */
+.row .input-field input {
+  box-shadow: none !important;
+  border: 2px solid $grey;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+span.thumb.active {
+  display: none;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+input[type=range] {
+  /*removes default webkit styles*/
+  -webkit-appearance: none;
+  
+  /*fix for FF unable to apply focus style bug */
+  border: 1px solid white;
+  
+  /*required for proper track sizing in FF*/
+  width: 100%;
+  max-width: 300px;
+}
+input[type=range]::-webkit-slider-runnable-track {
+  height: 5px;
+  background: $grey;
+  border: none;
+  border-radius: 3px;
+}
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  border: none;
+  height: 16px !important;
+  width: 16px !important;
+  border-radius: 50%;
+  background: $red;
+  margin-top: -5px;
+}
+input[type=range]:focus {
+  outline: none;
+}
+input[type=range]:focus::-webkit-slider-runnable-track {
+  background: $light-red;
+}
+
+input[type=range]::-moz-range-track {
+  height: 5px;
+  background: $grey;
+  border: none;
+  border-radius: 3px;
+  &.horizontal {
+    width: 300px;
+  }
+  &.vertical {
+    width: 100px;
+  }
+}
+input[type=range]::-moz-range-thumb {
+  border: none;
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+  background: $red;
+}
+
+/*hide the outline behind the border*/
+input[type=range]:-moz-focusring{
+  outline: 1px solid white;
+  outline-offset: -1px;
+}
+
+input[type=range]::-ms-track {
+  width: 300px;
+  height: 5px;
+  
+  /*remove bg colour from the track, we'll use ms-fill-lower and ms-fill-upper instead */
+  background: transparent;
+  
+  /*leave room for the larger thumb to overflow with a transparent border */
+  border-color: transparent;
+  border-width: 6px 0;
+
+  /*remove default tick marks*/
+  color: transparent;
+}
+input[type=range]::-ms-fill-lower {
+  background: $light-red;
+  border-radius: 10px;
+}
+input[type=range]::-ms-fill-upper {
+  background: $grey;
+  border-radius: 10px;
+}
+input[type=range]::-ms-thumb {
+  border: none;
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+  background: $red;
+}
+input[type=range]:focus::-ms-fill-lower {
+  background: $light-red;
+}
+input[type=range]:focus::-ms-fill-upper {
+  background: $grey;
+}
+
+input[type=range].vertical {
+  width: 100px;
+  height: 10px;
+  margin: 0 -24px;
+  transform: rotate(-90deg);
+}
+
+@media (max-width: 491px) { 
+  input[type=range].vertical {
+    margin: 0 -28px;
+  }
+}
+
+@media (max-width: 419px) { 
+  input[type=range].vertical {
+    margin: 0 -34px;
+  }
+}
+
+@media (max-width: 347px) { 
+  input[type=range].vertical {
+    margin: 0 -40px;
+  }
+}
+
+@media (max-width: 274px) { 
+  input[type=range].vertical {
+    margin: 0 -44px;
+  }
+}
+
+.range-field {
+}
+
