@@ -6,12 +6,14 @@ import { MaterializeModule } from 'angular2-materialize';
 import { AppComponent } from './app.component';
 import { AudioEditorComponent } from './audio-editor/audio-editor.component';
 import { AudioRecorderComponent } from './audio-recorder/audio-recorder.component';
+import { NavComponent } from './core/nav/nav.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AudioEditorComponent,
-    AudioRecorderComponent
+    AudioRecorderComponent,
+    NavComponent
   ],
   imports: [
     BrowserModule,
