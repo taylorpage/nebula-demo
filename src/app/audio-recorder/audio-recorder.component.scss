@@ -1,0 +1,66 @@
+@import '../../assets/_variables.scss';
+
+
+.record {
+  width: 60px;
+  height: 60px;
+  border-radius: 100px;
+  border: none;
+  background-color: $grey;
+
+  .center {
+    margin: 0 auto;
+    width: 20px;
+    height: 20px;
+    border-radius: 100px;
+    background-color: $red;
+  }
+}
+
+
+.bars {
+  height: 100px;
+  left: 50%;
+  margin: -30px 0 0 -20px;
+  position: absolute;
+  top: 50%;
+  width: 40px;
+}
+
+.bar {
+  background: $red;
+  bottom: 1px;
+  height: 100px;
+  position: absolute;
+  width: 30px;      
+  animation: sound 0ms -800ms linear infinite alternate;
+}
+
+.sound-waves {
+  height: 100px;
+}
+
+@keyframes sound {
+  0% {
+     opacity: .35;
+      height: 3px; 
+  }
+  100% {
+      opacity: 1;       
+      height: 100px;        
+  }
+}
+
+.bar:nth-child(1)  { left: -160px; animation-duration: 424ms; }
+.bar:nth-child(2)  { left: -130px; animation-duration: 433ms; }
+.bar:nth-child(3)  { left: -100px; animation-duration: 407ms; }
+.bar:nth-child(4)  { left: -70px; animation-duration: 458ms; }
+.bar:nth-child(5)  { left: -40px; animation-duration: 400ms; }
+.bar:nth-child(6)  { left: -10px; animation-duration: 427ms; }
+.bar:nth-child(7)  { left: 20px; animation-duration: 441ms; }
+.bar:nth-child(8)  { left: 50px; animation-duration: 419ms; }
+.bar:nth-child(9)  { left: 80px; animation-duration: 487ms; }
+.bar:nth-child(10) { left: 110px; animation-duration: 442ms; }
+.bar:nth-child(11)  { left: 140px; animation-duration: 427ms; }
+.bar:nth-child(12)  { left: 170px; animation-duration: 441ms; }
+.bar:nth-child(13)  { left: 200px; animation-duration: 419ms; }

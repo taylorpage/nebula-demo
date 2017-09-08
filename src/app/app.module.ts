@@ -5,11 +5,13 @@ import { MaterializeModule } from 'angular2-materialize';
 
 import { AppComponent } from './app.component';
 import { AudioEditorComponent } from './audio-editor/audio-editor.component';
+import { AudioRecorderComponent } from './audio-recorder/audio-recorder.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    AudioEditorComponent
+    AudioEditorComponent,
+    AudioRecorderComponent
   ],
   imports: [
     BrowserModule,
