@@ -1,5 +1,8 @@
 @import '../../assets/_variables.scss';
 
+.microphone {
+  width: 50px;
+}
 
 .record {
   width: 60px;
@@ -21,7 +24,7 @@
 .bars {
   height: 100px;
   left: 50%;
-  margin: -30px 0 0 -20px;
+  margin: -30px 0 0 -35px;
   position: absolute;
   top: 50%;
   width: 40px;
@@ -43,7 +46,7 @@
 @keyframes sound {
   0% {
      opacity: .35;
-      height: 3px; 
+      height: 40px; 
   }
   100% {
       opacity: 1;       
@@ -61,6 +64,6 @@
 .bar:nth-child(8)  { left: 50px; animation-duration: 419ms; }
 .bar:nth-child(9)  { left: 80px; animation-duration: 487ms; }
 .bar:nth-child(10) { left: 110px; animation-duration: 442ms; }
-.bar:nth-child(11)  { left: 140px; animation-duration: 427ms; }
-.bar:nth-child(12)  { left: 170px; animation-duration: 441ms; }
-.bar:nth-child(13)  { left: 200px; animation-duration: 419ms; }
+.bar:nth-child(11)  { left: 140px; animation-duration: 403ms; }
+.bar:nth-child(12)  { left: 170px; animation-duration: 430ms; }
+.bar:nth-child(13)  { left: 200px; animation-duration: 479ms; }

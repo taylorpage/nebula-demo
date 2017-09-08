@@ -1,0 +1,71 @@
+    /*
+    Flaticon icon font: Flaticon
+    Creation date: 22/06/2016 15:13
+    */
+
+    @font-face {
+  font-family: "Flaticon";
+  src: url("./Flaticon.eot");
+  src: url("./Flaticon.eot?#iefix") format("embedded-opentype"),
+       url("./Flaticon.woff") format("woff"),
+       url("./Flaticon.ttf") format("truetype"),
+       url("./Flaticon.svg#Flaticon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: "Flaticon";
+    src: url("./Flaticon.svg#Flaticon") format("svg");
+  }
+}
+
+    .fi:before{
+        display: inline-block;
+  font-family: "Flaticon";
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  line-height: 1;
+  text-decoration: inherit;
+  text-rendering: optimizeLegibility;
+  text-transform: none;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+    }
+
+    .flaticon-handheld-microphone:before { content: "\f100"; }
+.flaticon-handheld-microphone-1:before { content: "\f101"; }
+.flaticon-handheld-microphone-2:before { content: "\f102"; }
+.flaticon-microphone:before { content: "\f103"; }
+.flaticon-microphone-with-cable:before { content: "\f104"; }
+.flaticon-radio-microphone:before { content: "\f105"; }
+.flaticon-radio-microphone-1:before { content: "\f106"; }
+.flaticon-radio-microphone-2:before { content: "\f107"; }
+.flaticon-radio-microphone-3:before { content: "\f108"; }
+.flaticon-retro-microphone:before { content: "\f109"; }
+.flaticon-retro-microphone-1:before { content: "\f10a"; }
+.flaticon-retro-microphone-2:before { content: "\f10b"; }
+.flaticon-retro-microphone-3:before { content: "\f10c"; }
+.flaticon-retro-microphone-4:before { content: "\f10d"; }
+.flaticon-singer-microphone:before { content: "\f10e"; }
+.flaticon-singer-microphone-1:before { content: "\f10f"; }
+    
+    $font-Flaticon-handheld-microphone: "\f100";
+    $font-Flaticon-handheld-microphone-1: "\f101";
+    $font-Flaticon-handheld-microphone-2: "\f102";
+    $font-Flaticon-microphone: "\f103";
+    $font-Flaticon-microphone-with-cable: "\f104";
+    $font-Flaticon-radio-microphone: "\f105";
+    $font-Flaticon-radio-microphone-1: "\f106";
+    $font-Flaticon-radio-microphone-2: "\f107";
+    $font-Flaticon-radio-microphone-3: "\f108";
+    $font-Flaticon-retro-microphone: "\f109";
+    $font-Flaticon-retro-microphone-1: "\f10a";
+    $font-Flaticon-retro-microphone-2: "\f10b";
+    $font-Flaticon-retro-microphone-3: "\f10c";
+    $font-Flaticon-retro-microphone-4: "\f10d";
+    $font-Flaticon-singer-microphone: "\f10e";
+    $font-Flaticon-singer-microphone-1: "\f10f";
