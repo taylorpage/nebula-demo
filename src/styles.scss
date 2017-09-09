@@ -1,9 +1,14 @@
 @import './assets/_variables.scss';
 
+@font-face {
+  font-family: 'main_font';
+  src: url('./assets/fonts/didact_gothic.ttf') format('truetype');
+}
+
+
 ul.dropdown-content.select-dropdown li span {
   color: $red;
 }
-
 
 /* Dropdown styles */
 .row .input-field input {
@@ -125,6 +130,10 @@ input[type=range].vertical {
   input[type=range].vertical {
     margin: 0 -28px;
   }
+
+  #title {
+    font-size: 100px;
+  }
 }
 
 @media (max-width: 419px) { 
@@ -137,14 +146,45 @@ input[type=range].vertical {
   input[type=range].vertical {
     margin: 0 -40px;
   }
+
+  #title {
+    font-size: 80px;
+  }
 }
 
 @media (max-width: 274px) { 
   input[type=range].vertical {
     margin: 0 -44px;
   }
+
+  #title {
+    font-size: 60px;
+  }
 }
 
-.range-field {
+.btn {
+  border: 2px solid $red;
+  background-color: transparent;
+  color: $red;
+  font-size: 12px;
 }
+
+.btn:hover {
+  border: 2px solid white;
+  background-color: $red;;
+  color: white;
+}
+
+.btn.btn-secondary {
+  border: 2px solid white;
+  background-color: transparent;
+  color: white;
+}
+
+.btn.btn-secondary:hover {
+  border: 2px solid $red;
+  background-color: transparent;
+  color: $red;
+}
+
 

@@ -1,10 +1,19 @@
-h1 {
-  font-size: 80px;
-}
-
 .header {
   height: 500px;
   background: url('../../../assets/red-nebula-custom.png');
   background-size: cover;
   background-attachment: fixed;
+  font-family: 'main_font';
+}
+
+#title {
+  color: white;
+  font-size: 150px;
+  padding-top: 85px;
+}
+
+.subtitle {
+  color: white;
+  letter-spacing: 4px;
+  margin: -20px 0 20px 0;
 }
