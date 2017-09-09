@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 
+import presets from './audio-presets';
+
 @Component({
   selector: 'app-audio-editor',
   templateUrl: './audio-editor.component.html',
@@ -9,6 +11,7 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 export class AudioEditorComponent implements OnInit {
 
   public audioForm: FormGroup;
+  private presets = presets;
 
   constructor(
     private formBuilder: FormBuilder
@@ -18,7 +21,7 @@ export class AudioEditorComponent implements OnInit {
     this.createAudioForm();
   }
 
-  createAudioForm() {
+  createAudioForm(preset?: object) {
     this.audioForm = this.formBuilder.group({
       rangeOne: 0,
       rangeTwo: 0,
@@ -37,4 +40,15 @@ export class AudioEditorComponent implements OnInit {
     });
   }
 
+  setPresetAudioForm(presetForm: any, genre: string) {
+    presetForm.preset = genre;
+    this.audioForm = this.formBuilder.group(presetForm);
+  }
+
+  setPreset() {
+    const genre = this.audioForm.get('preset').value;
+    const preset = this.presets[genre];
+
+    this.setPresetAudioForm(preset, genre);
+  }
 }

@@ -61,15 +61,15 @@
 
     <div class="col-md-4 text-center">
       <h2>Effect Pre-Sets</h2>
-      <p>For those not trying to reinvent the wheel there is also an option to 
+      <p class="text-center">For those not trying to reinvent the wheel there is also an option to 
         select from a series of pre-selected effects based on specific genres
       </p>
       <div class="input-field pt-5">
-        <select formControlName="preset" materialize="material_select">
+        <select formControlName="preset" materialize="material_select" (change)="setPreset($event)">
           <option class="pre-set-options" value="custom">Custom</option>
           <option class="pre-set-options" value="jazz">Jazz</option>
           <option class="pre-set-options" value="acoustic">Acoustic</option>
-          <option class="pre-set-options" value="hip-hop">Hip Hop</option>
+          <option class="pre-set-options" value="hiphop">Hip Hop</option>
           <option class="pre-set-options" value="electronic">Electronic</option>
         </select>
       </div>
