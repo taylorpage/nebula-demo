@@ -15,6 +15,9 @@ export class AudioEditorComponent implements OnInit {
   private source: MediaElementAudioSourceNode;
   public playing = false;
 
+  // Effects
+  private compressor: DynamicsCompressorNode;
+
   public audioForm: FormGroup;
   private presets = presets;
 
@@ -24,6 +27,8 @@ export class AudioEditorComponent implements OnInit {
 
   ngOnInit() {
     this.createAudioForm();
+
+    this.compressor = this.audioContext.createDynamicsCompressor();
   }
 
   createAudioForm(preset?: object) {
@@ -57,6 +62,7 @@ export class AudioEditorComponent implements OnInit {
     this.setPresetAudioForm(preset, genre);
   }
 
+
   toggleAudio() {
     if (this.source) {
       this.source.disconnect();
@@ -69,10 +75,26 @@ export class AudioEditorComponent implements OnInit {
       audio.loop = true;
 
       this.source = this.audioContext.createMediaElementSource(audio);
-      this.source.connect(this.audioContext.destination);
+
+      this.compressor = this.audioContext.createDynamicsCompressor();
+
+      this.source.connect(this.compressor);
+      this.compressor.connect(this.audioContext.destination);
     }
 
     this.playing = !this.playing;
   }
+
+  updateCompressor() {
+    const range = this.audioForm.get('rangeOne').value * .01;
+    this.compressor.threshold.value = range * -100;
+    this.compressor.knee.value = range * 40;
+    this.compressor.ratio.value = (range * 19) + 1;
+    this.compressor.attack.value = 1 - range;
+    this.compressor.release.value = range;
+  }
+
+
+
 
 }
