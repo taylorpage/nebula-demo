@@ -5,8 +5,27 @@
   src: url('./assets/fonts/didact_gothic.ttf') format('truetype');
 }
 
+h2 {
+  margin: 0 0 40px 0;
+}
+
 ul.dropdown-content.select-dropdown li span {
   color: $red;
+}
+
+.section {
+  padding: 70px 0;
+}
+
+.faded-nebula {
+  background: url('./assets/faded-nebula.png');
+  background-attachment: fixed;
+  background-size: cover;
+  color: white;
+}
+
+.section {
+  padding: 80px 0 80px 0;
 }
 
 /* Dropdown styles */
@@ -15,6 +34,11 @@ ul.dropdown-content.select-dropdown li span {
   border: 2px solid $grey;
   border-radius: 5px;
   padding: 10px;
+}
+
+.col-black {
+  background-color: $black;
+  color: white;
 }
 
 span.thumb.active {
@@ -129,10 +153,6 @@ input[type=range].vertical {
   input[type=range].vertical {
     margin: 0 -28px;
   }
-
-  #title {
-    font-size: 100px;
-  }
 }
 
 @media (max-width: 419px) { 
@@ -145,19 +165,11 @@ input[type=range].vertical {
   input[type=range].vertical {
     margin: 0 -40px;
   }
-
-  #title {
-    font-size: 80px;
-  }
 }
 
 @media (max-width: 274px) { 
   input[type=range].vertical {
     margin: 0 -44px;
-  }
-
-  #title {
-    font-size: 60px;
   }
 }
 

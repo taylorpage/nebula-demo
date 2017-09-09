@@ -21,6 +21,7 @@
   border-radius: 100px;
   border: none;
   background-color: $grey;
+  margin-top: 40px;
 
   .center {
     margin: 0 auto;
@@ -31,9 +32,8 @@
   }
 }
 
-
 .bars {
-  height: 100px;
+  height: 100%;
   left: 50%;
   margin: -30px 0 0 -35px;
   position: absolute;
@@ -52,6 +52,12 @@
 
 .sound-waves {
   height: 100px;
+}
+
+@media (max-width: 459px) {
+  .mobile-hidden {
+    display: none;
+  }
 }
 
 @keyframes sound {
