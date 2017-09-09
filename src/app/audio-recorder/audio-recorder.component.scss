@@ -1,7 +1,18 @@
 @import '../../assets/_variables.scss';
 
 .microphone {
-  width: 50px;
+  width: 100px;
+  padding: 20px;
+}
+
+.microphone:hover {
+  background-color: $light-red;
+  border-radius: 100px;
+  -o-transition: .7s;
+  -ms-transition: .7s;
+  -moz-transition: .7s;
+  -webkit-transition: .7s;
+  transition: .7s;
 }
 
 .record {

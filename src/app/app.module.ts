@@ -7,13 +7,15 @@ import { AppComponent } from './app.component';
 import { AudioEditorComponent } from './audio-editor/audio-editor.component';
 import { AudioRecorderComponent } from './audio-recorder/audio-recorder.component';
 import { NavComponent } from './core/nav/nav.component';
+import { HeaderComponent } from './core/header/header.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AudioEditorComponent,
     AudioRecorderComponent,
-    NavComponent
+    NavComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
