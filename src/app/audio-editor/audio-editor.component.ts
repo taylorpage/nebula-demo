@@ -10,6 +10,11 @@ import presets from './audio-presets';
 })
 export class AudioEditorComponent implements OnInit {
 
+
+  private audioContext = new AudioContext();
+  private source: MediaElementAudioSourceNode;
+  public playing = false;
+
   public audioForm: FormGroup;
   private presets = presets;
 
@@ -51,4 +56,23 @@ export class AudioEditorComponent implements OnInit {
 
     this.setPresetAudioForm(preset, genre);
   }
+
+  toggleAudio() {
+    if (this.source) {
+      this.source.disconnect();
+    }
+
+    if (!this.playing) {
+      const audio = new Audio();
+      audio.src = '../../assets/audio/nebula_demo_loop.mp3';
+      audio.autoplay = true;
+      audio.loop = true;
+
+      this.source = this.audioContext.createMediaElementSource(audio);
+      this.source.connect(this.audioContext.destination);
+    }
+
+    this.playing = !this.playing;
+  }
+
 }

@@ -17,8 +17,17 @@
     </div>
 
     <div class="row">
+
+      <!-- Play Button -->
       <div class="col-md-12 text-center">
-        
+        <button class="btn" (click)="toggleAudio()">
+          <span *ngIf="!playing">Play Demo</span>
+          <span *ngIf="playing">Stop Demo</span>
+        </button>
+      </div>
+      
+      <!-- Controls -->
+      <div class="col-md-12 text-center">      
         <div class="row">
           <div class="col-md-12">
             <h5>Compressor</h5>
@@ -36,22 +45,21 @@
           </div>
         </div>
         <div class="row eq">
-          <!-- <div class="col-md-4"></div> -->
+
           <!-- Equalizer -->
           <div class="col-md-12 text-center">
             <h5 class="pb-5">EQ</h5>
-              <div class="range-field">
-                <input type="range" class="vertical" formControlName="eqOne" >  
-                <input type="range" class="vertical" formControlName="eqTwo" >
-                <input type="range" class="vertical" formControlName="eqThree" >
-                <input type="range" class="vertical" formControlName="eqFour" >
-                <input type="range" class="vertical" formControlName="eqFive" >
-                <input type="range" class="vertical" formControlName="eqSix" >
-              </div>
+            <div class="range-field">
+              <input type="range" class="vertical" formControlName="eqOne" >  
+              <input type="range" class="vertical" formControlName="eqTwo" >
+              <input type="range" class="vertical" formControlName="eqThree" >
+              <input type="range" class="vertical" formControlName="eqFour" >
+              <input type="range" class="vertical" formControlName="eqFive" >
+              <input type="range" class="vertical" formControlName="eqSix" >
             </div>
-          <!-- <div class="col-md-4"></div> -->
+          </div>
+
         </div>
-        
       </div>
     </div>
   </div>
