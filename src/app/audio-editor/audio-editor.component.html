@@ -36,7 +36,7 @@
 
           <div class="col-md-12">
             <h5>Delay</h5>
-            <input type="range" class="horizontal" formControlName="rangeTwo">
+            <input type="range" class="horizontal" formControlName="rangeTwo" (input)="updateDelay()">
           </div>
 
           <div class="col-md-12">
@@ -50,12 +50,12 @@
           <div class="col-md-12 text-center">
             <h5 class="pb-5">EQ</h5>
             <div class="range-field">
-              <input type="range" class="vertical" formControlName="eqOne" >  
-              <input type="range" class="vertical" formControlName="eqTwo" >
-              <input type="range" class="vertical" formControlName="eqThree" >
-              <input type="range" class="vertical" formControlName="eqFour" >
-              <input type="range" class="vertical" formControlName="eqFive" >
-              <input type="range" class="vertical" formControlName="eqSix" >
+              <input type="range" class="vertical" max="100" min="-100" formControlName="eq32" (input)="updateEq('eq32')">  
+              <input type="range" class="vertical" max="100" min="-100" formControlName="eq125" (input)="updateEq('eq125')">
+              <input type="range" class="vertical" max="100" min="-100" formControlName="eq500" (input)="updateEq('eq500')">
+              <input type="range" class="vertical" max="100" min="-100" formControlName="eq1000" (input)="updateEq('eq1000')">
+              <input type="range" class="vertical" max="100" min="-100" formControlName="eq4000" (input)="updateEq('eq4000')">
+              <input type="range" class="vertical" max="100" min="-100" formControlName="eq16000" (input)="updateEq('eq16000')">
             </div>
           </div>
 

@@ -18,6 +18,14 @@ export class AudioEditorComponent implements OnInit {
   // Effects
   private compressor: DynamicsCompressorNode;
   private gain: GainNode;
+  private delay: DelayNode;
+
+  private eq32: BiquadFilterNode;
+  private eq125: BiquadFilterNode;
+  private eq500: BiquadFilterNode;
+  private eq1000: BiquadFilterNode;
+  private eq4000: BiquadFilterNode;
+  private eq16000: BiquadFilterNode;
 
   public audioForm: FormGroup;
   private presets = presets;
@@ -38,12 +46,12 @@ export class AudioEditorComponent implements OnInit {
       rangeThree: 0,
 
       // EQ
-      eqOne: 0,
-      eqTwo: 0,
-      eqThree: 0,
-      eqFour: 0,
-      eqFive: 0,
-      eqSix: 0,
+      eq32: 0,
+      eq125: 0,
+      eq500: 0,
+      eq1000: 0,
+      eq4000: 0,
+      eq16000: 0,
 
       // Pre set
       preset: ''
@@ -65,8 +73,47 @@ export class AudioEditorComponent implements OnInit {
   setEffects() {
     this.compressor = this.audioContext.createDynamicsCompressor();
     this.gain = this.audioContext.createGain();
+    this.delay = this.audioContext.createDelay();
+    this.createEQ();
   }
 
+  createEQ() {
+    ['eq32', 'eq125', 'eq500', 'eq1000', 'eq4000', 'eq16000']
+      .forEach(level => {
+        this[level] = this.audioContext.createBiquadFilter();
+        this[level].q = 1.3;
+
+        if (level === 'eq32') {
+          this[level].type = 'lowshelf';
+        } else if (level === 'eq16000') {
+          this[level].type = 'highshelf';
+        } else {
+          this[level].type = 'peaking';
+        }
+      });
+
+    this.eq32.frequency.value = 32;
+    this.eq125.frequency.value = 125;
+    this.eq500.frequency.value = 500;
+    this.eq1000.frequency.value = 1000;
+    this.eq4000.frequency.value = 4000;
+    this.eq16000.frequency.value = 16000;
+  }
+
+  connectAudio() {
+    this.source.connect(this.eq32);
+
+    this.eq32.connect(this.eq125);
+    this.eq125.connect(this.eq500);
+    this.eq500.connect(this.eq1000);
+    this.eq1000.connect(this.eq4000);
+    this.eq4000.connect(this.eq16000);
+    this.eq16000.connect(this.compressor);
+
+    this.compressor.connect(this.gain);
+    this.gain.connect(this.delay);
+    this.delay.connect(this.audioContext.destination);
+  }
 
   toggleAudio() {
     if (this.source) {
@@ -82,10 +129,7 @@ export class AudioEditorComponent implements OnInit {
       this.source = this.audioContext.createMediaElementSource(audio);
 
       this.setEffects();
-
-      this.source.connect(this.compressor);
-      this.compressor.connect(this.gain);
-      this.gain.connect(this.audioContext.destination);
+      this.connectAudio();
     }
 
     this.playing = !this.playing;
@@ -101,8 +145,15 @@ export class AudioEditorComponent implements OnInit {
   }
 
   updateGain() {
-    const gain = this.audioForm.get('rangeThree').value;
-    this.gain.gain.value = gain;
+    this.gain.gain.value = this.audioForm.get('rangeThree').value;
+  }
+
+  updateDelay() {
+    this.delay.delayTime.value = this.audioForm.get('rangeTwo').value * .01;
+  }
+
+  updateEq(freq: string) {
+    this[freq].gain.value = this.audioForm.get(freq).value / 5;
   }
 
 
