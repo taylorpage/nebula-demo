@@ -17,6 +17,7 @@ export class AudioEditorComponent implements OnInit {
 
   // Effects
   private compressor: DynamicsCompressorNode;
+  private gain: GainNode;
 
   public audioForm: FormGroup;
   private presets = presets;
@@ -27,8 +28,7 @@ export class AudioEditorComponent implements OnInit {
 
   ngOnInit() {
     this.createAudioForm();
-
-    this.compressor = this.audioContext.createDynamicsCompressor();
+    this.setEffects();
   }
 
   createAudioForm(preset?: object) {
@@ -62,6 +62,11 @@ export class AudioEditorComponent implements OnInit {
     this.setPresetAudioForm(preset, genre);
   }
 
+  setEffects() {
+    this.compressor = this.audioContext.createDynamicsCompressor();
+    this.gain = this.audioContext.createGain();
+  }
+
 
   toggleAudio() {
     if (this.source) {
@@ -76,10 +81,11 @@ export class AudioEditorComponent implements OnInit {
 
       this.source = this.audioContext.createMediaElementSource(audio);
 
-      this.compressor = this.audioContext.createDynamicsCompressor();
+      this.setEffects();
 
       this.source.connect(this.compressor);
-      this.compressor.connect(this.audioContext.destination);
+      this.compressor.connect(this.gain);
+      this.gain.connect(this.audioContext.destination);
     }
 
     this.playing = !this.playing;
@@ -92,6 +98,11 @@ export class AudioEditorComponent implements OnInit {
     this.compressor.ratio.value = (range * 19) + 1;
     this.compressor.attack.value = 1 - range;
     this.compressor.release.value = range;
+  }
+
+  updateGain() {
+    const gain = this.audioForm.get('rangeThree').value;
+    this.gain.gain.value = gain;
   }
 
 
