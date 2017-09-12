@@ -18,7 +18,9 @@ export class AudioEditorComponent implements OnInit {
   // Effects
   private compressor: DynamicsCompressorNode;
   private gain: GainNode;
-  private delay: DelayNode;
+  private reverb: ConvolverNode;
+  private reverbGain: GainNode;
+  private dryReverbGain: GainNode;
 
   private eq32: BiquadFilterNode;
   private eq125: BiquadFilterNode;
@@ -73,8 +75,13 @@ export class AudioEditorComponent implements OnInit {
   setEffects() {
     this.compressor = this.audioContext.createDynamicsCompressor();
     this.gain = this.audioContext.createGain();
-    this.delay = this.audioContext.createDelay();
+
+    this.reverb = this.audioContext.createConvolver();
+    this.reverbGain = this.audioContext.createGain();
+    this.dryReverbGain = this.audioContext.createGain();
+
     this.createEQ();
+    this.createReverb();
   }
 
   createEQ() {
@@ -100,8 +107,28 @@ export class AudioEditorComponent implements OnInit {
     this.eq16000.frequency.value = 16000;
   }
 
+  createReverb() {
+    const request = new XMLHttpRequest();
+    request.open('GET', '../../assets/audio/bright_reverb.mp3', true);
+    request.responseType = 'arraybuffer';
+
+    request.onload = () => {
+      this.audioContext.decodeAudioData(request.response, (buffer) => {
+        this.reverb.buffer = buffer;
+        this.reverb.normalize = true;
+        this.reverbGain.gain.value = 0;
+        this.reverbGain.connect(this.reverb);
+        this.reverb.connect(this.dryReverbGain);
+      });
+    };
+    request.send();
+  }
+
   connectAudio() {
-    this.source.connect(this.eq32);
+    this.source.connect(this.reverbGain);
+    this.source.connect(this.dryReverbGain);
+    // this.reverb.connect(this.dryReverbGain);
+    this.dryReverbGain.connect(this.eq32);
 
     this.eq32.connect(this.eq125);
     this.eq125.connect(this.eq500);
@@ -111,8 +138,7 @@ export class AudioEditorComponent implements OnInit {
     this.eq16000.connect(this.compressor);
 
     this.compressor.connect(this.gain);
-    this.gain.connect(this.delay);
-    this.delay.connect(this.audioContext.destination);
+    this.gain.connect(this.audioContext.destination);
   }
 
   toggleAudio() {
@@ -148,8 +174,8 @@ export class AudioEditorComponent implements OnInit {
     this.gain.gain.value = this.audioForm.get('rangeThree').value;
   }
 
-  updateDelay() {
-    this.delay.delayTime.value = this.audioForm.get('rangeTwo').value * .01;
+  updateReverb() {
+    this.reverbGain.gain.value = this.audioForm.get('rangeTwo').value;
   }
 
   updateEq(freq: string) {
