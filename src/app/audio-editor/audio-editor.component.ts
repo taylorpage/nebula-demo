@@ -43,9 +43,9 @@ export class AudioEditorComponent implements OnInit {
 
   createAudioForm(preset?: object) {
     this.audioForm = this.formBuilder.group({
-      rangeOne: 0,
-      rangeTwo: 0,
-      rangeThree: 0,
+      compressor: 0,
+      reverb: 0,
+      gain: 0,
 
       // EQ
       eq32: 0,
@@ -108,20 +108,32 @@ export class AudioEditorComponent implements OnInit {
   }
 
   createReverb() {
-    const request = new XMLHttpRequest();
-    request.open('GET', '../../assets/audio/bright_reverb.mp3', true);
-    request.responseType = 'arraybuffer';
+    this.reverb.buffer = this.createReverbImpulse();
+    this.reverb.normalize = true;
+    this.reverbGain.gain.value = 0;
+    this.reverbGain.connect(this.reverb);
+    this.reverb.connect(this.dryReverbGain);
+  }
 
-    request.onload = () => {
-      this.audioContext.decodeAudioData(request.response, (buffer) => {
-        this.reverb.buffer = buffer;
-        this.reverb.normalize = true;
-        this.reverbGain.gain.value = 0;
-        this.reverbGain.connect(this.reverb);
-        this.reverb.connect(this.dryReverbGain);
-      });
-    };
-    request.send();
+  createReverbImpulse() {
+    const rate = this.audioContext.sampleRate;
+    const length = rate * 1.5;
+    const decay = 1; // Max 100
+    const reverse = false;
+
+    const impulse = this.audioContext.createBuffer(2, length, rate);
+    const impulseL = impulse.getChannelData(0);
+    const impulseR = impulse.getChannelData(1);
+    let n;
+
+    for (let i = 0; i < length; i++) {
+      n = reverse ? length - i : i;
+      impulseL[i] = (Math.random() * 2 - 1) * Math.pow(1 - n / length, decay);
+      impulseR[i] = (Math.random() * 2 - 1) * Math.pow(1 - n / length, decay);
+    }
+
+    return impulse;
+
   }
 
   connectAudio() {
@@ -162,7 +174,7 @@ export class AudioEditorComponent implements OnInit {
   }
 
   updateCompressor() {
-    const range = this.audioForm.get('rangeOne').value * .01;
+    const range = this.audioForm.get('compressor').value * .01;
     this.compressor.threshold.value = range * -100;
     this.compressor.knee.value = range * 40;
     this.compressor.ratio.value = (range * 19) + 1;
@@ -171,11 +183,11 @@ export class AudioEditorComponent implements OnInit {
   }
 
   updateGain() {
-    this.gain.gain.value = this.audioForm.get('rangeThree').value;
+    this.gain.gain.value = this.audioForm.get('gain').value;
   }
 
   updateReverb() {
-    this.reverbGain.gain.value = this.audioForm.get('rangeTwo').value;
+    this.reverbGain.gain.value = this.audioForm.get('reverb').value;
   }
 
   updateEq(freq: string) {

@@ -31,17 +31,17 @@
         <div class="row">
           <div class="col-md-12">
             <h5>Compressor</h5>
-            <input type="range" class="horizontal" formControlName="rangeOne" (input)="updateCompressor()"> 
+            <input type="range" class="horizontal" formControlName="compressor" (input)="updateCompressor()"> 
           </div>
 
           <div class="col-md-12">
             <h5>Reverb</h5>
-            <input type="range" class="horizontal" max="1" min="0" step=".01" formControlName="rangeTwo" (input)="updateReverb()">
+            <input type="range" class="horizontal" min="0" max="1" step=".01" formControlName="reverb" (input)="updateReverb()">
           </div>
 
           <div class="col-md-12">
             <h5>Gain</h5>
-            <input type="range" class="horizontal" formControlName="rangeThree" (input)="updateGain()" min="1" max="10" step=".1">
+            <input type="range" class="horizontal" min="1" max="10" step=".1" formControlName="gain" (input)="updateGain()">
           </div>
         </div>
         <div class="row eq">
