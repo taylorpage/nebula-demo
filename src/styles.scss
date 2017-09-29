@@ -174,15 +174,13 @@ input[type=range].vertical {
 }
 
 .btn {
-  border: 2px solid $red;
   background-color: white;
   color: $red;
   font-size: 12px;
 }
 
 .btn:hover {
-  border: 2px solid white;
-  background-color: $red;;
+  background-color: $red;
   color: white;
 }
 
@@ -190,16 +188,24 @@ input[type=range].vertical {
   background-color: blue;
 }
 
-.btn.btn-secondary {
-  border: 2px solid white;
-  background-color: white;
+.btn.btn-primary {
+  background-color: $red;
   color: white;
 }
 
-.btn.btn-secondary:hover {
-  border: 2px solid $red;
+.btn.btn-primary:hover {
   background-color: white;
   color: $red;
+}
+
+.btn.btn-secondary {
+  background-color: white;
+  color: $red;
+}
+
+.btn.btn-secondary:hover {
+  background-color: $red;
+  color: white;
 }
 
 

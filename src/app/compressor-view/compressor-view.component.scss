@@ -6,17 +6,14 @@
 }
 
 .btn {
-  border: none;
   width: 120px;
   .genre {
-    border: none;
     background-color: white;
     color: $red;
     font-size: 12px;
   }
   
   .genre:hover {
-    border: 2px solid $red;
     background-color: white;
     color: white;
   }
