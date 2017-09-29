@@ -1,14 +1,43 @@
 <div class="row">
   <div class="col-md-4"></div>
-  <div class="col col-md-4 text-center">
+  <div class="col-md-4 text-center">
+
+    <h3>Compessor</h3>
+    <p>Default compressor values are set by the genre selected. Each genre has it's own set of default values and ratios set for the compressor </p>
+
     <form [formGroup]="compressorForm">
       <div class="range-field">
         <input type="range" class="vertical long" formControlName="threshold" min="-100" max="0">  
-        <input type="range" class="vertical long" formControlName="knee" min="0" max="40" step="">
+        <input type="range" class="vertical long" formControlName="knee" min="0" max="40" step="1">
         <input type="range" class="vertical long" formControlName="ratio" min="1" max="20" step=".2">
         <input type="range" class="vertical long" formControlName="attack" min="0" max="1" step=".01">
         <input type="range" class="vertical long" formControlName="release" min="0" max="1" step=".01">
-        <input type="range" (input)="updateCompressorView()">
+        <div class="row">
+          <div class="col-md-12">
+            <label class="pl-2 pr-2">threshold</label>
+            <label class="pl-2 pr-2">knee</label>
+            <label class="pl-2 pr-2">ratio</label>
+            <label class="pl-2 pr-2">attack</label>
+            <label class="pl-2 pr-2">release</label>
+          </div>
+        </div>
+        <h6>Compressor</h6>
+        <input type="range" formControlName="compressor" (input)="updateCompressorView()" min="0" max="1" step=".01">
+      </div>
+
+      <div class="row">
+        <div class="col-xl-3">
+          <button class="btn genre waves-effect waves-light" (click)="setGenreCompressorDefaults('hiphop')">Hip Hop</button>
+        </div>
+        <div class="col-xl-3">
+          <button class="btn genre waves-effect waves-light" (click)="setGenreCompressorDefaults('indy')">Indy</button>
+        </div>
+        <div class="col-xl-3">
+          <button class="btn genre waves-effect waves-light" (click)="setGenreCompressorDefaults('country')">Country</button>
+        </div>
+        <div class="col-xl-3">
+          <button class="btn genre waves-effect waves-light" (click)="setGenreCompressorDefaults('rock')">Rock</button>
+        </div>
       </div>
     </form>
   </div>
