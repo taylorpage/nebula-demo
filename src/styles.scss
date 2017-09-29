@@ -175,7 +175,7 @@ input[type=range].vertical {
 
 .btn {
   border: 2px solid $red;
-  background-color: transparent;
+  background-color: white;
   color: $red;
   font-size: 12px;
 }
@@ -186,15 +186,19 @@ input[type=range].vertical {
   color: white;
 }
 
+.btn.active {
+  background-color: blue;
+}
+
 .btn.btn-secondary {
   border: 2px solid white;
-  background-color: transparent;
+  background-color: white;
   color: white;
 }
 
 .btn.btn-secondary:hover {
   border: 2px solid $red;
-  background-color: transparent;
+  background-color: white;
   color: $red;
 }
 

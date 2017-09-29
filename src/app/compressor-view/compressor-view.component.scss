@@ -1,0 +1,24 @@
+@import '../../assets/_variables.scss';
+
+.vertical.long {
+  width: 200px;
+  margin: 100px -75px;
+}
+
+.btn {
+  border: none;
+  width: 120px;
+  .genre {
+    border: none;
+    background-color: white;
+    color: $red;
+    font-size: 12px;
+  }
+  
+  .genre:hover {
+    border: 2px solid $red;
+    background-color: white;
+    color: white;
+  }
+}
+
