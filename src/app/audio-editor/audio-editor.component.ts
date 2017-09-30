@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 
-import presets from './audio-presets';
+import presets from '../shared/audio-presets';
 
 @Component({
   selector: 'app-audio-editor',

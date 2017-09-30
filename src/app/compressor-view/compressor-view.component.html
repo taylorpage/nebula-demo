@@ -7,11 +7,11 @@
 
     <form [formGroup]="compressorForm">
       <div class="range-field">
-        <input type="range" class="vertical long" formControlName="threshold" min="-100" max="0">  
-        <input type="range" class="vertical long" formControlName="knee" min="0" max="40" step="1">
-        <input type="range" class="vertical long" formControlName="ratio" min="1" max="20" step=".2">
-        <input type="range" class="vertical long" formControlName="attack" min="0" max="1" step=".01">
-        <input type="range" class="vertical long" formControlName="release" min="0" max="1" step=".01">
+        <input type="range" class="vertical long disabled" formControlName="threshold" min="-100" max="0" disabled>  
+        <input type="range" class="vertical long disabled" formControlName="knee" min="0" max="40" step="1" disabled>
+        <input type="range" class="vertical long disabled" formControlName="ratio" min="1" max="20" step=".2" disabled>
+        <input type="range" class="vertical long disabled" formControlName="attack" min="0" max="1" step=".01" disabled>
+        <input type="range" class="vertical long disabled" formControlName="release" min="0" max="1" step=".01" disabled>
         <div class="row">
           <div class="col-md-12">
             <label class="pl-2 pr-2">threshold</label>
@@ -25,6 +25,12 @@
         <input type="range" formControlName="compressor" (input)="updateCompressorView()" min="0" max="1" step=".01">
       </div>
 
+
+      <h5 class="pb-3">Genre Specific Compressors</h5>
+      <p class="text-center">
+        Changing the genre will change the default values and adjustment ratios for the compressor.
+        This feature allows users to select the perfect settings for their specific genre.
+      </p>
       <div class="row">
         <div class="col-xl-3">
           <button class="btn btn-secondary genre waves-effect waves-light" (click)="setGenreCompressorDefaults('hiphop')">Hip Hop</button>

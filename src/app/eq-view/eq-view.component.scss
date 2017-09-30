@@ -1,0 +1,15 @@
+@import '../../assets/_variables.scss';
+
+.btn {
+  width: 120px;
+  .genre {
+    background-color: white;
+    color: $red;
+    font-size: 12px;
+  }
+  
+  .genre:hover {
+    background-color: white;
+    color: white;
+  }
+}

@@ -1,0 +1,36 @@
+<div class="row">
+  <div class="col-md-4"></div>
+  <div class="col-md-4">
+    <form [formGroup]="eqForm">
+      <!-- Equalizer -->
+      <div class="col-md-12 text-center">
+        <h5 class="pb-5">EQ</h5>
+        <div class="range-field">
+          <input type="range" class="vertical" max="100" min="-100" formControlName="eq32" (input)="updateEq('eq32')">  
+          <input type="range" class="vertical" max="100" min="-100" formControlName="eq125" (input)="updateEq('eq125')">
+          <input type="range" class="vertical" max="100" min="-100" formControlName="eq500" (input)="updateEq('eq500')">
+          <input type="range" class="vertical" max="100" min="-100" formControlName="eq1000" (input)="updateEq('eq1000')">
+          <input type="range" class="vertical" max="100" min="-100" formControlName="eq4000" (input)="updateEq('eq4000')">
+          <input type="range" class="vertical" max="100" min="-100" formControlName="eq16000" (input)="updateEq('eq16000')">
+        </div>
+      </div>
+
+
+      <div class="row pt-5">
+        <div class="col-xl-3">
+          <button class="btn btn-secondary genre waves-effect waves-light" (click)="setGenreCompressorDefaults('hiphop')">Hip Hop</button>
+        </div>
+        <div class="col-xl-3">
+          <button class="btn btn-secondary genre waves-effect waves-light" (click)="setGenreCompressorDefaults('indy')">Indy</button>
+        </div>
+        <div class="col-xl-3">
+          <button class="btn btn-secondary genre waves-effect waves-light" (click)="setGenreCompressorDefaults('country')">Country</button>
+        </div>
+        <div class="col-xl-3">
+          <button class="btn btn-secondary genre waves-effect waves-light" (click)="setGenreCompressorDefaults('rock')">Rock</button>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="col-md-4"></div>
+</div>
