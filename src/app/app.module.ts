@@ -9,6 +9,7 @@ import { AudioRecorderComponent } from './audio-recorder/audio-recorder.componen
 import { NavComponent } from './core/nav/nav.component';
 import { HeaderComponent } from './core/header/header.component';
 import { CompressorViewComponent } from './compressor-view/compressor-view.component';
+import { EqViewComponent } from './eq-view/eq-view.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { CompressorViewComponent } from './compressor-view/compressor-view.compo
     AudioRecorderComponent,
     NavComponent,
     HeaderComponent,
-    CompressorViewComponent
+    CompressorViewComponent,
+    EqViewComponent
   ],
   imports: [
     BrowserModule,

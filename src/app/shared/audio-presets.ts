@@ -1,4 +1,18 @@
-const presets = {
+export const genreCompressors = {
+  hiphop: [-10, 20, 5, .3, .0],
+  indy: [-0, 35, 3, .7, .0],
+  country: [-10, 30, 3, .6, .3],
+  rock: [-35, 25, 12, .6, .4]
+};
+
+export const genreEqs = {
+  hiphop: [36, 50, -13, -7, -5, 25],
+  indy: [36, 29, 19, 15, 30, 20],
+  country: [33, 47, 17, 0, -23, -33],
+  rock: [30, 25, -4, -7, 22, 32]
+};
+
+export const presets = {
   custom: {
     rangeOne: 0,
     rangeTwo: 0,
@@ -56,4 +70,3 @@ const presets = {
   }
 };
 
-export default presets;
