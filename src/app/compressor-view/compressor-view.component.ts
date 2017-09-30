@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-
+import { genreCompressors } from '../shared/audio-presets';
 @Component({
   selector: 'app-compressor-view',
   templateUrl: './compressor-view.component.html',
@@ -16,14 +16,6 @@ export class CompressorViewComponent implements OnInit {
   public ratio = 12;
   public attack = .4; // web audio api default: .003
   public release = .25;
-
-  // Genre specific compressor defaults
-  private genreCompressors = {
-    hiphop: [-10, 20, 5, .3, .0],
-    indy: [-0, 35, 3, .7, .0],
-    country: [-10, 30, 3, .6, .3],
-    rock: [-35, 25, 12, .6, .4]
-  };
 
   constructor(
     private formBuilder: FormBuilder
@@ -56,7 +48,7 @@ export class CompressorViewComponent implements OnInit {
 
   // Sets compressor defaults based on genre selected
   setGenreCompressorDefaults(genre: string) {
-    const settings = this.genreCompressors[genre];
+    const settings = genreCompressors[genre];
 
     this.threshold = settings[0];
     this.knee = settings[1];
